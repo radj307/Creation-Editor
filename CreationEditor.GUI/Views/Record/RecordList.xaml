@@ -14,7 +14,7 @@
                                                AllowFiltering="True" AllowSorting="True"
                                                AllowDraggingColumns="True" AllowResizingColumns="True"
                                                AutoGenerateColumns="False"
-                                               ColumnSizer="Auto"
+                                               ColumnSizer="Star"
                                                EnableDataVirtualization="True">
                             <syncfusion:SfDataGrid.InputBindings>
                                 <MouseBinding MouseAction="LeftDoubleClick"
@@ -38,14 +38,11 @@
                             </syncfusion:SfDataGrid.ContextMenu>
                             <syncfusion:SfDataGrid.Columns>
                                 <syncfusion:GridTextColumn HeaderText="EditorID" MappingName="Record.EditorID"
-                                                           AllowFiltering="True" AllowSorting="True"
-                                                           ColumnSizer="Star" />
+                                                           AllowFiltering="True" AllowSorting="True" />
                                 <syncfusion:GridTextColumn HeaderText="FormKey" MappingName="Record.FormKey"
-                                                           AllowFiltering="True" AllowSorting="True" 
-                                                           ColumnSizer="Star" />
+                                                           AllowFiltering="True" AllowSorting="True" />
                                 <syncfusion:GridTextColumn HeaderText="Use Info" MappingName="References.Count"
-                                                           AllowFiltering="True" AllowSorting="True"
-                                                           ColumnSizer="Star" />
+                                                           AllowFiltering="True" AllowSorting="True" />
                             </syncfusion:SfDataGrid.Columns>
                         </syncfusion:SfDataGrid>
 
