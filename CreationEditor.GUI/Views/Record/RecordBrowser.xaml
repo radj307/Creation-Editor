@@ -27,13 +27,15 @@
 
             <StackPanel Grid.Row="0" Margin="5">
                 <TextBlock Text="Filter" />
-                <TextBox Padding="1" Text="{Binding RecordBrowserSettings.SearchTerm, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Text="{Binding RecordBrowserSettings.SearchTerm, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
+
             <CheckBox
                 Grid.Row="1"
-                Margin="5"
+                Margin="5,5,5,6"
                 Content="Show Only Active"
                 IsChecked="{Binding RecordBrowserSettings.OnlyActive}" />
+
             <TreeView Grid.Row="2" ItemsSource="{Binding RecordTypeGroups}">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type recordBrowser:RecordTypeGroup}" ItemsSource="{Binding RecordTypes}">
@@ -41,7 +43,7 @@
                     </HierarchicalDataTemplate>
                     <DataTemplate DataType="{x:Type recordBrowser:RecordTypeListing}">
                         <Button Command="{Binding DataContext.SelectRecordType, RelativeSource={RelativeSource AncestorType=record:RecordBrowser}}" CommandParameter="{Binding}">
-                            <TextBlock Text="{Binding RecordTypeName}" />
+                            <TextBlock Padding="2,1" Text="{Binding RecordTypeName}" />
                         </Button>
                     </DataTemplate>
                 </TreeView.Resources>

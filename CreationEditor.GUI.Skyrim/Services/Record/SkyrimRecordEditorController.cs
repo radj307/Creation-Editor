@@ -31,6 +31,11 @@ public class SkyrimRecordEditorController : IRecordEditorController {
         _dockingManagerService.GetDockingManager().CloseButtonClick += OnClosed;
     }
 
+    public bool IsEditorAvailable<TMajorRecord, TMajorRecordGetter>()
+        where TMajorRecord : class, IMajorRecord, TMajorRecordGetter
+        where TMajorRecordGetter : class, IMajorRecordGetter
+        => _lifetimeScope.IsRegistered<IRecordEditorVM<TMajorRecord, TMajorRecordGetter>>();
+
     public void OpenEditor<TMajorRecord, TMajorRecordGetter>(TMajorRecord record)
         where TMajorRecord : class, IMajorRecord, TMajorRecordGetter
         where TMajorRecordGetter : class, IMajorRecordGetter {

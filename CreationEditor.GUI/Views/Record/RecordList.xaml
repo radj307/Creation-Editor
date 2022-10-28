@@ -10,7 +10,9 @@
                     <Grid>
                         <syncfusion:SfDataGrid x:Name="RecordGrid"
                                                ItemsSource="{Binding Records, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
+                                               SelectedItems="{Binding SelectedRecords, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
                                                SelectedItem="{Binding SelectedRecord, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
+                                               SelectionMode="Extended"
                                                AllowFiltering="True" AllowSorting="True"
                                                AllowDraggingColumns="True" AllowResizingColumns="True"
                                                AutoGenerateColumns="False"
@@ -26,10 +28,11 @@
                             </syncfusion:SfDataGrid.InputBindings>
                             <syncfusion:SfDataGrid.ContextMenu>
                                 <ContextMenu>
+                                    <MenuItem Header="Edit"
+                                              IsEnabled="{Binding CanEditSelectedRecordType, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Command="{Binding EditSelectedRecord, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"/>
                                     <MenuItem Header="New"
                                               Command="{Binding NewRecord, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" />
-                                    <MenuItem Header="Edit"
-                                              Command="{Binding EditSelectedRecord, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" />
                                     <MenuItem Header="Duplicate"
                                               Command="{Binding DuplicateSelectedRecord, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" />
                                     <MenuItem Header="Delete"
@@ -56,7 +59,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="{x:Static vm:RecordListVM.RecordReadOnlyListStyle}" TargetType="{x:Type vm:RecordListVM}">
         <Setter Property="Template">
             <Setter.Value>
